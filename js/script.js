@@ -1,19 +1,20 @@
-// Copyright (c) 2022 Ms Raffin All rights reserved
+// Copyright (c) 2023 Skelton All rights reserved
 //
-// Created by: Ms Raffin
-// Created on: Sep 2022
+// Created by: Remy Skelton
+// Created on: Mar 2022
 // This file contains the JS functions for index.html
 
 function enterClicked () {
-  // this function gets user's sreet name and number and displays it back to user
   const TAX_RATE=0.2005
   
-  // the number of hours worked by the user
+  // User data input
   let hoursWorked = parseFloat(document.getElementById("hours-worked").value)
-	
-  // the hourly rate of the user
   let hourlyRate = parseFloat(document.getElementById("hourly-rate").value)
-
-  // display name and number back to user
-  document.getElementById('user-info').innerHTML = "Your Street Number is " + hoursWorked + " and you live on " + hourlyRate + "."
+  let totalPay = hoursWorked * hourlyRate;
+  let tax = totalPay * TAX_RATE;
+  let takeHomeSalary = totalPay - tax;
+  
+  // Data given back to user
+  document.getElementById('takeHomeSalary').innerHTML = 'After taxes your take home slary is $' + takeHomeSalary.toFixed(2)
+  document.getElementById('taxPaid').innerHTML = 'Amount of tax money the goverment will resive from you is $' + tax.toFixed(2)
 }
